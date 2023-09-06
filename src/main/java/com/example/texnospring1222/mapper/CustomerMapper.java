@@ -15,6 +15,7 @@ public interface CustomerMapper {
 
     @Mapping(target = "name", source = "firstName")
     @Mapping(target = "serialNumber", source = "passportAzEntity.serialNumber")
+    @Mapping(target = "fin", source = "passportAzEntity.fin")
 //    @Mapping(target = "expireDay", expression = "java(ChronoUnit.DAYS.between(LocalDate.now(), customer.getPassportAzEntity().getExpiredAt()))")
 //    @Mapping(target = "expireDay", qualifiedByName = "getExpireDay")
     CustomerDto mapEntityToDto(CustomerEntity customer);
