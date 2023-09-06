@@ -1,63 +1,29 @@
 package com.example.texnospring1222.model;
 
-import java.util.List;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
 public class CustomerDto {
+    @NotNull
+    @Size(min = 3, max = 20)
     private String name;
+    @Min(value = 18, message = "Age must be more than 18")
+    @Max(value = 65)
     private Integer age;
     private String serialNumber;
     private String fin;
     private Long expireDay;
-
-
-    public CustomerDto() {
-    }
-
-    public CustomerDto(String name, Integer age, String serialNumber, String fin, Long expireDay) {
-        this.name = name;
-        this.age = age;
-        this.serialNumber = serialNumber;
-        this.fin = fin;
-        this.expireDay = expireDay;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public String getFin() {
-        return fin;
-    }
-
-    public void setFin(String fin) {
-        this.fin = fin;
-    }
-
-    public Long getExpireDay() {
-        return expireDay;
-    }
-
-    public void setExpireDay(Long expireDay) {
-        this.expireDay = expireDay;
-    }
+    @Email
+    private String email;
 }
